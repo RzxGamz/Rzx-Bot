@@ -1,0 +1,10 @@
+{
+   "wait": "Loading...",
+   "error": "Maaf terjadi kesalahan!",
+   "sukses": "Done!",
+   "owner": "Fitur tersebut hanya untuk owner!",
+   "admin": "Fitur tersebut hanya untuk admin!",
+   "group": "Fitur tersebut hanya bisa di group!",
+   "private": "Fitur tersebut hanya bisa di private chat!",
+   "badmin": "Fitur tersebut hanya bisa ketika bot admin!"
+}
