@@ -1,15 +1,12 @@
 "use strict";
 const { WAConnection, MessageType } = require('@adiwajshing/baileys');
-const funct = require('./lib/funct.js');
-const moment = require("moment-timezone");
 const fs = require('fs');
 const cfonts = require('cfonts');
 const { exec } = require('child_process');
 const { color, bgcolor } = require('./lib/color');
-const sock = new WAConnection();
-const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss');
+const sock = new WAConnection()
 
-require('./rzx.js');
+require('./rzx.js')
 nocache('./rzx.js', module => console.log(`${module} is now updated!`));
 
 async function starts () {
@@ -24,7 +21,7 @@ async function starts () {
     });
     
     sock.on('qr', () => {
-        console.log(color('[','white'), color('!','red'), color(']','white'), color(' SCAN THIS QR CODE!'))
+        console.log(color('[','white'), color('!','red'), color(']','white'), color(' SCAN THIS QR CODE!'));
     });
     
     fs.existsSync('./session.json') && sock.loadAuthInfo('./session.json');
