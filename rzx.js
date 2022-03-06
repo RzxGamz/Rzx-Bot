@@ -14,6 +14,7 @@ const {
     mentionedJid,
     WA_DEFAULT_EPHEMERAL
 } = require("@adiwajshing/baileys");
+const funct = require('./lib/funct.js');
 const fs = require("fs");
 const moment = require("moment-timezone");
 const { exec, spawn } = require("child_process");
@@ -158,8 +159,9 @@ const addCooldown = (userId) => {
     }, 60000)
 }
 
-module.exports = async (sock, msg, baterai) => {
+module.exports = async (sock, mek) => {
 	try {
+		msg = await funct.serialize(sock, mek);
 		const { type, quotedMsg, isGroup, isQuotedMsg, mentioned, sender, from, fromMe, pushname, chats, isBaileys } = msg
 		const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product, buttonsMessage, listMessage } = MessageType
 		const args = chats.split(' ')
