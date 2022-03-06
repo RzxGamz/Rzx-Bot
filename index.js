@@ -53,7 +53,7 @@ async function starts () {
 		if (!msg.message) return
 		msg.message = (Object.keys(msg.message)[0] === 'ephemeralMessage') ? msg.message.ephemeralMessage.message : msg.message
 		if (msg.key && msg.key.remoteJid == 'status@broadcast') return
-		await simple.serialize(sock, msg)
+		msg = await simple.serialize(sock, msg)
         require('./rzx.js')(sock, msg)
     })
     
