@@ -6,15 +6,12 @@ const fs = require('fs');
 const cfonts = require('cfonts');
 const { exec } = require('child_process');
 const { color, bgcolor } = require('./lib/color');
-const sock = new WAConnection();
 const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss');
 
 require('./rzx.js');
 nocache('./rzx.js', module => console.log(`${module} is now updated!`));
 
-sock.mode = 'self'
-
-async function starts () {
+async function starts (sock = new WAConnection()) {
 	sock.logger.level = 'warn';
     sock.version = [2, 2142, 12];
     sock.browserDescription = [ 'RzxGamz', 'EDGE', '3.0' ];
@@ -24,6 +21,8 @@ async function starts () {
         font: 'block',
         align: 'center',
     });
+
+    sock.mode = 'self'
     
     sock.on('qr', () => {
         console.log(color('[','white'), color('!','red'), color(']','white'), color(' SCAN THIS QR CODE!'))
