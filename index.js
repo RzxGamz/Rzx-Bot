@@ -4,12 +4,11 @@ const fs = require('fs');
 const cfonts = require('cfonts');
 const { exec } = require('child_process');
 const { color, bgcolor } = require('./lib/color');
-const sock = new WAConnection()
 
 require('./rzx.js')
 nocache('./rzx.js', module => console.log(`${module} is now updated!`));
 
-async function starts () {
+async function starts (sock = new WAConnection()) {
 	sock.logger.level = 'warn';
     sock.version = [2, 2142, 12];
     sock.browserDescription = [ 'RzxGamz', 'EDGE', '3.0' ];
