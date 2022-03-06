@@ -1,5 +1,5 @@
 "use strict";
-const { default: WAConnection, MessageType } = require('@adiwajshing/baileys');
+const { WAConnection, MessageType } = require('@adiwajshing/baileys');
 const funct = require('./lib/funct.js');
 const moment = require("moment-timezone");
 const fs = require('fs');
@@ -22,8 +22,6 @@ async function starts () {
         font: 'block',
         align: 'center',
     });
-    
-    sock.mode = 'self'
     
     sock.on('qr', () => {
         console.log(color('[','white'), color('!','red'), color(']','white'), color(' SCAN THIS QR CODE!'))
@@ -52,8 +50,7 @@ async function starts () {
 		if (!mek.message) return;
 		mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message;
 		if (mek.key && mek.key.remoteJid == 'status@broadcast') return;
-		msg = await funct.serialize(sock, mek);
-        require('./rzx.js')(sock, msg);
+        require('./rzx.js')(sock, mek);
     });
     
     sock.on('group-participants-update', async (anu) => {
