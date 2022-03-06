@@ -1,6 +1,4 @@
-const { WAConnection: _WAConnection, MessageType } = require('@adiwajshing/baileys')
-const funct = require('./lib/funct.js')
-const WAConnection = funct.WAConnection(_WAConnection)
+const { WAConnection, MessageType } = require('@adiwajshing/baileys')
 const moment = require("moment-timezone")
 const fs = require('fs')
 const cfonts = require('cfonts')
