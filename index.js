@@ -1,5 +1,5 @@
 "use strict";
-const { WAConnection, MessageType } = require('@adiwajshing/baileys');
+const { default: WAConnection, MessageType } = require('@adiwajshing/baileys');
 const funct = require('./lib/funct.js');
 const moment = require("moment-timezone");
 const fs = require('fs');
