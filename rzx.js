@@ -1,6 +1,6 @@
 "use strict";
 const {
-    WAConnection,
+    WAConnection: _WAConnection,
     MessageType,
     Presence,
     Mimetype,
@@ -14,6 +14,8 @@ const {
     mentionedJid,
     WA_DEFAULT_EPHEMERAL
 } = require("@adiwajshing/baileys");
+const funct = require('./lib/funct.js')
+const WAConnection = funct.WAConnection(_WAConnection)
 const fs = require("fs");
 const moment = require("moment-timezone");
 const { exec, spawn } = require("child_process");
