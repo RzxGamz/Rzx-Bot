@@ -194,7 +194,6 @@ module.exports = async (sock, msg) => {
         const isAntiLink = isGroup ? antilink.includes(from) : false
         const isAntiVO = isGroup ? antiviewonce.includes(from) : false
         const isWelcome = isGroup ? welcome.includes(from) : false
-        const isAutoSticker = isGroup ? autosticker.includes(from) : false
         const isNsfw = isGroup ? nsfw.includes(from) : false
         const isBadword = isGroup ? grupbadword.includes(from) : false
         const isMuted = isGroup ? mute.includes(from) : false
