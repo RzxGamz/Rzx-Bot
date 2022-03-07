@@ -64,7 +64,7 @@ async function starts () {
 		}
         if (anu.action == 'add') {
         	if (anu.participants[0] === sock.user.jid) {
-        	sock.sendMessage(mdata.id, { contentText: `Hai semua, Saya Rzx Bot\n\nAnda dapat menggunakan fitur yang tertera dalam command dari bot ini\nKetik */menu* untuk menampilkan list command / ketuk tombol di bawah`, footerText: `@Rzxbot`, buttons: [{buttonId: "/menu", buttonText: { displayText: "ᴍᴇɴᴜ" }, type: "RESPONSE"}], headerType: "EMPTY" }, MessageType.buttonsMessage)
+        	sock.sendMessage(mdata.id, { contentText: `Hai semua, Saya Rzx Bot\n\nAnda dapat menggunakan fitur yang tertera dalam command dari bot ini\nKetik *#menu* untuk menampilkan list command / ketuk tombol di bawah`, footerText: `@Rzxbot`, buttons: [{buttonId: "#menu", buttonText: { displayText: "ᴍᴇɴᴜ" }, type: "RESPONSE"}], headerType: "EMPTY" }, MessageType.buttonsMessage)
             }
         	textwel = `Selamat datang @${mem.split("@")[0]}`
             sock.sendMessage(anu.jid, textwel, MessageType.text, { contextInfo: { externalAdReply: { title: "Welcome Message", body: `${member.length} Members`, previewType: "PHOTO", sourceUrl: `` }, mentionedJid: [mem] }})
