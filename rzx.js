@@ -66,6 +66,7 @@ let _image = JSON.parse(fs.readFileSync('./database/image.json'))
 let _scommand = JSON.parse(fs.readFileSync('./database/scommand.json'))
 let _claim = JSON.parse(fs.readFileSync('./database/claim.json'))
 let limit = JSON.parse(fs.readFileSync('./database/limit.json'));
+let welcome = JSON.parse(fs.readFileSync('./database/welcome.json'));
 
 let { ownerNumber, limitCount } = setting
 
