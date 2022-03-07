@@ -51,6 +51,7 @@ let premium = JSON.parse(fs.readFileSync('./database/premium.json'));
 let sewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
 let ban = JSON.parse(fs.readFileSync('./database/ban.json'));
 let antilink = JSON.parse(fs.readFileSync('./database/antilink.json'));
+let antiwame = JSON.parse(fs.readFileSync('./database/antiwame.json'));
 let nsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'));
 let antiviewonce = JSON.parse(fs.readFileSync('./database/antiviewonce.json'));
 let badword = JSON.parse(fs.readFileSync('./database/badword.json'));
@@ -192,6 +193,7 @@ module.exports = async (sock, msg) => {
 	    const isBan = cekBannedUser(sender, ban)
         const isClaimOn = _claim.includes(sender)
         const isAntiLink = isGroup ? antilink.includes(from) : false
+        const isAntiWame = isGroup ? antiwame.includes(from) : false
         const isAntiVO = isGroup ? antiviewonce.includes(from) : false
         const isWelcome = isGroup ? welcome.includes(from) : false
         const isNsfw = isGroup ? nsfw.includes(from) : false
