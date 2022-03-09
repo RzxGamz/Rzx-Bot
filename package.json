@@ -48,6 +48,7 @@
     "qrcode": "^1.4.4",
     "request": "^2.88.2",
     "wa-sticker-formatter": "^3.6.0",
+    "xfarr-api": "*",
     "yt-search": "^2.8.0"
   },
   "repository": {
