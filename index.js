@@ -94,7 +94,7 @@ async function starts () {
     	console.log(anu)
         mem = anu.participants[0]
 		const mdata = await sock.groupMetadata(anu.jid)
-		const member = mdata.participant
+		const member = mdata.participants
 		try {
 		ppuser = await sock.getProfilePicture(mem)
 		} catch {
