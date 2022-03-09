@@ -619,6 +619,7 @@ module.exports = async (sock, msg) => {
             case 'menu': {
         	let groupChat = sock.chats.array.filter(v => v.jid.endsWith('g.us'))
             let privatChat = sock.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+            let allchat = sock.chats.all()
         	let levelUser = getLevelingLevel(sender)
             let xpUser = getLevelingXp(sender)
             let reqXp  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
