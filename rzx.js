@@ -358,8 +358,6 @@ module.exports = async (sock, msg) => {
         EXCEL : "application/msexcel"
         */
 		async function sendButDocument (id, content, footer, img, but = [], opt = {}) {
-                        let mimedoc = ["application/pdf","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/msword"]
-                        let randomMime = mimedoc[Math.floor(Math.random() * mimedoc.length)]
 			sock.sendMessage(id, {
                contentText: content,
                footerText: footer,
@@ -367,7 +365,7 @@ module.exports = async (sock, msg) => {
                "headerType": "DOCUMENT", 
                "documentMessage": { 
                "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", 
-               "mimetype": randomMime,
+               "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                "title": "@Rzxbot", 
                "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", 
                "fileLength": 50000000000, 
