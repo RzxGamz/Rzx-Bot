@@ -286,6 +286,10 @@ module.exports = async (sock, msg) => {
             return sock.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: msg, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
         }
         
+        const fakevoimg = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "fileLength": "50000000000", "viewOnce": true } }, "status": "DELIVERY_ACK" }
+        const fakevovid = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "videoMessage": { "title": `Rzx Bot`,"h": `Rzx Bot`,'duration': '99999','caption': `Rzx Bot`,"viewOnce": true }}, "status": "SERVER_ACK"}
+        const fakewa = { key: { fromMe: false, participant: `0@s.whatsapp.net` }, message: { "imageMessage": { "caption": `𝙍𝙕𝙓 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏`,"jpegThumbnail": imgrzx }}, "status": "SERVER_ACK"}
+
         const isImage = (type === 'imageMessage')
         const isVideo = (type === 'videoMessage')
         const isSticker = (type == 'stickerMessage')
@@ -353,9 +357,9 @@ module.exports = async (sock, msg) => {
         DOC : "application/msword"
         EXCEL : "application/msexcel"
         */
-        let mimedoc = ["application/pdf","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/msword"]
-        let randomMime = mimedoc[Math.floor(Math.random() * mimedoc.length)]
 		async function sendButDocument (id, content, footer, img, but = [], opt = {}) {
+                        let mimedoc = ["application/pdf","application/vnd.openxmlformats-officedocument.wordprocessingml.document","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/msword"]
+                        let randomMime = mimedoc[Math.floor(Math.random() * mimedoc.length)]
 			sock.sendMessage(id, {
                contentText: content,
                footerText: footer,
