@@ -90,7 +90,7 @@ async function starts () {
         require('./rzx.js')(sock, msg)
     })
     
-    sock.on('group-participants-update', async (anu) => {
+    /*sock.on('group-participants-update', async (anu) => {
     	console.log(anu)
         mem = anu.participants[0]
 		const mdata = await sock.groupMetadata(anu.jid)
@@ -116,9 +116,9 @@ async function starts () {
         	textdem = `@${mem.split("@")[0]} anda bukan admin lagi!`
             sock.sendMessage(anu.jid, textdem, MessageType.text, { contextInfo: { externalAdReply: { title: "Demote Message", body: `Rzxbot`, previewType: "PHOTO", sourceUrl: `` }, mentionedJid: [mem] }})
         }
-    })
+    })*/
     
-    sock.on('group-update', async (anu) => {
+    /*sock.on('group-update', async (anu) => {
     	console.log(anu)
 		const metdata = await sock.groupMetadata(anu.jid)
         if(anu.announce == 'false'){
@@ -142,7 +142,7 @@ async function starts () {
         teks = `*「 GROUP SETTING CHANGE 」*\n\nEdit Group info telah ditutup untuk member\nSekarang hanya admin group yang dapat mengedit info Group Ini`
         sock.sendMessage(metdata.id, teks, MessageType.text, { contextInfo: { externalAdReply: { title: "Event Group Update", body: `</Rzc >`, previewType: "PHOTO", sourceUrl: `` }}})
   }
-})
+})*/
 
     sock.on('CB:action,,call', async json => {
         const callerId = json[2][0][1].from
