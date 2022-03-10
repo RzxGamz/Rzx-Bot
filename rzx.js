@@ -620,6 +620,7 @@ module.exports = async (sock, msg) => {
         	
         	case prefix+'help': 
             case prefix+'menu': {
+                const allchat = sock.chats.all()
         	const groupChat = sock.chats.array.filter(v => v.jid.endsWith('g.us'))
             const privatChat = sock.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
         	const levelUser = getLevelingLevel(sender)
