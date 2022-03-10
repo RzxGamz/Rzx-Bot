@@ -629,7 +629,7 @@ module.exports = async (sock, msg) => {
         	
         	case prefix+'help': 
             case prefix+'menu': 
-            txtmenu = `Hai @${sender.split('@')[0]}
+            let txtmenu = `Hai @${sender.split('@')[0]}
 ${ucapan}
 
 ┌───────────
@@ -675,7 +675,7 @@ ${ucapan}
             sendButDocument(from, txtmenu, 'Rzx Bot', imgrzx2, button, { contextInfo: { externalAdReply: { title: "Rzx Whatsapp Bot", body: "Created By RzxGamz", mediaType: "2", jpegThumbnail: imgrzx, mediaUrl: `https://instagram.com` }}})
             break
             case prefix+'allmenu': 
-            txtallmenu = `Hi ${pushname}
+            let txtallmenu = `Hi ${pushname}
 ${ucapan}
 
 *𐌏 Name : ${pushname}*
