@@ -205,6 +205,15 @@ module.exports = async (sock, msg) => {
         const isUser = pendaftar.includes(sender)
         const more = String.fromCharCode(8206)
 		const readmore = more.repeat(4001)
+		const allchat = sock.chats.all()
+        const groupChat = sock.chats.array.filter(v => v.jid.endsWith('g.us'))
+        const privatChat = sock.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+        const levelUser = getLevelingLevel(sender)
+        const xpUser = getLevelingXp(sender)
+        const reqXp  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
+	    const balUser = getBalance(sender, balance)
+        const sisalimit = getLimit(sender, limitCount, limit)
+        const exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
         
         var countDownDate = new Date("April, 02, 2022 04:15:00").getTime();
         var now = new Date(new Date().getTime() + 25200000).getTime();
@@ -619,17 +628,8 @@ module.exports = async (sock, msg) => {
         switch (command) {
         	
         	case prefix+'help': 
-            case prefix+'menu':
-                 allchat = sock.chats.all()
-        	 groupChat = sock.chats.array.filter(v => v.jid.endsWith('g.us'))
-             privatChat = sock.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
-        	 levelUser = getLevelingLevel(sender)
-             xpUser = getLevelingXp(sender)
-             reqXp  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
-			 balUser = getBalance(sender, balance)
-        	 sisalimit = getLimit(sender, limitCount, limit)
-        	 exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
-                txtmenu = `Hai @${sender.split('@')[0]}
+            case prefix+'menu': 
+            txtmenu = `Hai @${sender.split('@')[0]}
 ${ucapan}
 
 ┌───────────
@@ -674,24 +674,18 @@ ${ucapan}
             ]
             sendButDocument(from, txtmenu, 'Rzx Bot', imgrzx2, button, { contextInfo: { externalAdReply: { title: "Rzx Whatsapp Bot", body: "Created By RzxGamz", mediaType: "2", jpegThumbnail: imgrzx, mediaUrl: `https://instagram.com` }}})
             break
-            case prefix+'allmenu':
-             levelUser2 = getLevelingLevel(sender)
-             xpUser2 = getLevelingXp(sender)
-             reqXp2  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
-             balUser2 = getBalance(sender, balance)
-             sisalimit2 = getLimit(sender, limitCount, limit)
-             exprem2 = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
-                txtallmenu = `Hi ${pushname}
+            case prefix+'allmenu': 
+            txtallmenu = `Hi ${pushname}
 ${ucapan}
 
 *𐌏 Name : ${pushname}*
 *𐌏 Number : ${sender.split('@')[0]}*
 *𐌏 Status : ${isOwner ? "Owner" : isPremium ? "Premium" : "Free User"}*
-*𐌏 Limit : ${isPremium ? 'Unlimited' : `${sisalimit2}/${limitCount}`}*
-*𐌏 Balance : $${balUser2}*
-*𐌏 Xp : ${xpUser2} / ${reqXp2}*
+*𐌏 Limit : ${isPremium ? 'Unlimited' : `${sisalimit}/${limitCount}`}*
+*𐌏 Balance : $${balUser}*
+*𐌏 Xp : ${xpUser} / ${reqXp}*
 *𐌏 Role : ${role}*
-*𐌏 Expired Premium : ${isOwner ? 'Unlimited' : isPremium ? exprem2 : 'Not Premium'}*
+*𐌏 Expired Premium : ${isOwner ? 'Unlimited' : isPremium ? exprem : 'Not Premium'}*
 
 *═════════════════════*
 
@@ -746,6 +740,7 @@ ${ucapan}
 *✆ Github : https://github.com/RzxGamz*
 *✆ Instagram : https://instagram.com/rzxgamz*
 *✆ WhatsApp : https://api.whatsapp.com/send?phone=6288225066473
+*✆ Gmail : rzxgamzofc@gmail.com*
 
 *─────────────────────*`
             sendProduct(from, "𝙍𝙕𝙓 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏", txtallmenu, { quoted: fakewa })
@@ -1050,7 +1045,7 @@ ${ucapan}
             	if (!q) return reply(`Masukkan link tiktok!`)
                 if (!isUrl(q) && !q.includes('tiktok.com')) return reply(`Link invalid!`)
                 reply(mess.wait)
-                res = await ttdownloader(q)
+            	let res = await ttdownloader(q)
                 sock.sendMessage(from, { url: res.nowm }, video, { quoted: msg, mimetype: 'video/mp4', thumbnail: imgrzx })
                 limitAdd(sender, limit)
             }
