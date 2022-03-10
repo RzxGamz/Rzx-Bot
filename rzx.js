@@ -619,16 +619,16 @@ module.exports = async (sock, msg) => {
         switch (command) {
         	
         	case prefix+'help': 
-            case prefix+'menu': {
-                const allchat = sock.chats.all()
-        	const groupChat = sock.chats.array.filter(v => v.jid.endsWith('g.us'))
-            const privatChat = sock.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
-        	const levelUser = getLevelingLevel(sender)
-            const xpUser = getLevelingXp(sender)
-            const reqXp  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
-			const balUser = getBalance(sender, balance)
-        	const sisalimit = getLimit(sender, limitCount, limit)
-        	const exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
+            case prefix+'menu':
+                 allchat = sock.chats.all()
+        	 groupChat = sock.chats.array.filter(v => v.jid.endsWith('g.us'))
+             privatChat = sock.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+        	 levelUser = getLevelingLevel(sender)
+             xpUser = getLevelingXp(sender)
+             reqXp  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
+			 balUser = getBalance(sender, balance)
+        	 sisalimit = getLimit(sender, limitCount, limit)
+        	 exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
                 txtmenu = `Hai @${sender.split('@')[0]}
 ${ucapan}
 
@@ -1050,7 +1050,7 @@ ${ucapan}
             	if (!q) return reply(`Masukkan link tiktok!`)
                 if (!isUrl(q) && !q.includes('tiktok.com')) return reply(`Link invalid!`)
                 reply(mess.wait)
-            	let res = await ttdownloader(q)
+                res = await ttdownloader(q)
                 sock.sendMessage(from, { url: res.nowm }, video, { quoted: msg, mimetype: 'video/mp4', thumbnail: imgrzx })
                 limitAdd(sender, limit)
             }
