@@ -628,7 +628,7 @@ module.exports = async (sock, msg) => {
 			const balUser = getBalance(sender, balance)
         	const sisalimit = getLimit(sender, limitCount, limit)
         	const exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
-        	const txtmenu = `Hai @${sender.split('@')[0]}
+                txtmenu = `Hai @${sender.split('@')[0]}
 ${ucapan}
 
 ┌───────────
@@ -681,7 +681,7 @@ ${ucapan}
 			    const balUser = getBalance(sender, balance)
         	    const sisalimit = getLimit(sender, limitCount, limit)
             	const exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
-            	const txtallmenu = `Hi ${pushname}
+                txtallmenu = `Hi ${pushname}
 ${ucapan}
 
 *𐌏 Name : ${pushname}*
@@ -746,7 +746,6 @@ ${ucapan}
 *✆ Github : https://github.com/RzxGamz*
 *✆ Instagram : https://instagram.com/rzxgamz*
 *✆ WhatsApp : https://api.whatsapp.com/send?phone=6288225066473
-*✆ Gmail : rzxgamzofc@gmail.com*
 
 *─────────────────────*`
             sendProduct(from, "𝙍𝙕𝙓 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏", txtallmenu, { quoted: fakewa })
