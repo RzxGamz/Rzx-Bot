@@ -673,26 +673,25 @@ ${ucapan}
                     {buttonId: `${prefix}script`, buttonText: {displayText: 'SCRIPT'}, type: 1}
             ]
             sendButDocument(from, txtmenu, 'Rzx Bot', imgrzx2, button, { contextInfo: { externalAdReply: { title: "Rzx Whatsapp Bot", body: "Created By RzxGamz", mediaType: "2", jpegThumbnail: imgrzx, mediaUrl: `https://instagram.com` }}})
-            }
             break
-            case prefix+'allmenu': {
-            	const levelUser = getLevelingLevel(sender)
-                const xpUser = getLevelingXp(sender)
-                const reqXp  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
-			    const balUser = getBalance(sender, balance)
-        	    const sisalimit = getLimit(sender, limitCount, limit)
-            	const exprem = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
+            case prefix+'allmenu':
+             levelUser2 = getLevelingLevel(sender)
+             xpUser2 = getLevelingXp(sender)
+             reqXp2  = 200 * (Math.pow(2, getLevelingLevel(sender)) - 1)
+             balUser2 = getBalance(sender, balance)
+             sisalimit2 = getLimit(sender, limitCount, limit)
+             exprem2 = `${ms(prem.getPremiumExpired(sender, premium) - Date.now()).days} days ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).hours} hours ${ms(prem.getPremiumExpired(sender, premium) - Date.now()).minutes} minutes`
                 txtallmenu = `Hi ${pushname}
 ${ucapan}
 
 *𐌏 Name : ${pushname}*
 *𐌏 Number : ${sender.split('@')[0]}*
 *𐌏 Status : ${isOwner ? "Owner" : isPremium ? "Premium" : "Free User"}*
-*𐌏 Limit : ${isPremium ? 'Unlimited' : `${sisalimit}/${limitCount}`}*
-*𐌏 Balance : $${balUser}*
-*𐌏 Xp : ${xpUser} / ${reqXp}*
+*𐌏 Limit : ${isPremium ? 'Unlimited' : `${sisalimit2}/${limitCount}`}*
+*𐌏 Balance : $${balUser2}*
+*𐌏 Xp : ${xpUser2} / ${reqXp2}*
 *𐌏 Role : ${role}*
-*𐌏 Expired Premium : ${isOwner ? 'Unlimited' : isPremium ? exprem : 'Not Premium'}*
+*𐌏 Expired Premium : ${isOwner ? 'Unlimited' : isPremium ? exprem2 : 'Not Premium'}*
 
 *═════════════════════*
 
@@ -750,7 +749,6 @@ ${ucapan}
 
 *─────────────────────*`
             sendProduct(from, "𝙍𝙕𝙓 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 𝘽𝙊𝙏", txtallmenu, { quoted: fakewa })
-            }
             break
             
             case prefix+'setprefix':
